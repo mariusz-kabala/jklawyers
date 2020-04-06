@@ -17,7 +17,7 @@ export const FounderInfo = ({
         [styles.active]: isActive
     })}>
       <h3>
-        <span className={styles.position}>{t('Legal Counsel')}</span>
+        <span className={styles.position}>{t(`${person}-legal-counsel`)}</span>
         {t(`${person}-name`)} <span className={styles.surname}>{t(`${person}-surname`)}</span>
       </h3>
       <p>
