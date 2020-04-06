@@ -76,6 +76,10 @@ pipeline {
                     script {
                         sh "git checkout ${branch}"
                         sh "npm run semantic-release" 
+                        sh "git status"
+                        sh "git add -A"
+                        sh "git commit -m 'chore: 🤖 Bump version'"
+                        sh "git push origin ${branch}"
                     }
                 }
             }
