@@ -10,6 +10,6 @@ WORKDIR /app
 
 RUN npm i && npm run build
 
-EXPOSE 9000
+EXPOSE 8000
 
 CMD ["npm", "run", "serve", "--port", "8000", "--host", "0.0.0.0"]

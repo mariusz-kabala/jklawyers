@@ -28,7 +28,7 @@ resource "docker_container" "jklawyers" {
 
   labels {
     label = "traefik.port"
-    value = "9000"
+    value = "8000"
   }
 
   env = [
