@@ -1,0 +1,44 @@
+@import 'styles/variables.scss';
+@import 'styles/mixins.scss';
+@import 'styles/breakpoints.scss';
+
+.content {
+    flex-basis: 100%;
+    width: 100%;
+    background-color: $colorMain;
+
+    @include min-sm {
+        flex-basis: 34%;
+    }
+
+    input {
+        padding: 5px;
+        width: 100%;
+        font-size: 14px;
+        @include mainFont;
+    }
+
+    button {
+        @include mainFont;
+        font-size: 14px;
+        font-weight: 600;
+        display: block;
+        margin: 0 auto;
+
+        @include min-sm {
+            float: right;
+        }
+    }
+
+    textarea {
+        width: 100%;
+        height: 200px;
+        @include mainFont;
+        padding: 5px;
+        font-size: 14px;
+    }
+
+    .element {
+        margin-bottom: 8px;
+    }
+}

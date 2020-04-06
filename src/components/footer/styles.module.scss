@@ -1,0 +1,22 @@
+@import 'styles/variables.scss';
+@import 'styles/mixins.scss';
+
+.footer {
+    padding: 0.5%;
+    background-color: $colorMain;
+    text-align: center;
+    color: white;
+    @include mainFont;
+
+    a {
+        color: white;
+    }
+
+    p {
+        font-size: 14px;
+        margin: 0;
+    }
+    svg {
+        margin: 0 5px;
+    }
+}

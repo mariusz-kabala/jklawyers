@@ -8,6 +8,9 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
+import { Contact } from 'components/contact'
+import { Footer } from 'components/Footer'
+import i18n from '../i18n'
 
 import Header from "./header"
 import "./layout.css"
@@ -24,23 +27,18 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <>
+    <div id="outer-container">
       <Header siteTitle={data.site.siteMetadata.title} />
       <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
+        id="page-wrap"
       >
         <main>{children}</main>
         <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
+          <Contact />
+          <Footer />
         </footer>
       </div>
-    </>
+    </div>
   )
 }
 

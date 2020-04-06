@@ -1,0 +1,55 @@
+@import 'styles/index';
+
+.spacer {
+    height: 29px;
+}
+
+.container {
+    background-color: white;
+    height: 65px;
+    top: 0;
+    position: fixed;
+    width: 100%;
+
+    z-index: 2;
+    @include mainFont;
+    @include min-sm {
+        display: none;
+    }
+}
+
+.logo {
+    width: 60px;
+    margin: 15px 0 0 60px;
+    height: 35px;
+
+    img {
+        max-width: 100%;
+    }
+}
+
+.menu {
+    outline: none;
+    @include reset-list;
+    @include mainFont;
+
+    
+        li {
+            list-style-type: square;
+            color: $colorMain;
+            margin-left: 10px;
+            a {
+                text-decoration: none;
+                text-transform: uppercase;
+                color: $colorMain;
+            }
+
+            &.disabled {
+                color: $colorDisabled;
+                a {
+                    color: $colorDisabled;
+                }
+            }
+        }
+    
+}

@@ -1,0 +1,46 @@
+@import 'styles/variables.scss';
+@import 'styles/mixins.scss';
+@import 'styles/breakpoints.scss';
+
+.container {
+    color: white;
+    background-color: $colorMain;
+
+    h3 {
+        margin: 0;
+        font-size: 22px;
+        line-height: 22px;
+
+        svg {
+            position: relative;
+            top: 2px;
+        }
+    }
+
+    a {
+        color: white;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+
+    @include min-sm {
+        display: block;
+    }
+
+    .element {
+        flex-basis: 50%;
+        text-align: center;
+
+        @include min-sm {
+            text-align: left;
+        }
+    }
+
+}

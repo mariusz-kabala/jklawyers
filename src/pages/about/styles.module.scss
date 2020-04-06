@@ -1,0 +1,40 @@
+@import 'styles/mixins';
+@import 'styles/breakpoints';
+@import 'styles/variables';
+
+.bg {
+    background: linear-gradient(180deg, rgba(225,225,225,1) 0%, rgba(240,240,240,1) 35%, rgba(255,255,255,1) 100%);
+    width: 100%;
+    height: 250px;
+    @include min-sm {
+        height: 917px;
+    }
+}
+
+.main {
+    background: url('./assets/main.jpg') center center no-repeat;
+    background-size: contain;
+    width: 100%;
+    height: 250px;
+
+    @include min-sm {
+        background: url('./assets/main.jpg') center center no-repeat;
+        height: 917px;
+    }
+}
+
+.content {
+    padding: 2% 5%;
+    @include min-sm {
+        padding: 2% 15%;
+    }
+    @include mainFont; 
+    h1 {
+        font-size: 32px;
+        color: $colorMain;
+    }
+
+    p {
+        text-align: justify;
+    }
+}

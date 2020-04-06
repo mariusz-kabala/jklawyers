@@ -1,0 +1,17 @@
+$colorMain: #970052;
+$colorSecond: #e8e9eb;
+$colorDisabled: grey;
+
+$three-columns-20-gutter: (
+  columns: 4,
+  gutter: 20px,
+);
+
+$two-columns-20-gutter: (
+  columns: 2,
+  gutter: 20px,
+);
+
+$neat-grid: () !default;
+
+$neat-custom-grid: () !default;

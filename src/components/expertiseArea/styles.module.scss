@@ -1,0 +1,72 @@
+@import 'styles/index';
+
+@import 'styles/breakpoints.scss';
+
+.box {
+    text-align: center;
+    display: table;
+    line-height: 1rem;
+    font-size: 16px;
+    font-weight: 300;
+    width: 100%;
+    background: white;
+    border: 1px solid $colorSecond;
+    margin-bottom: 1.5%;
+    height: 180px;
+
+    @include min-sm {
+      margin: 1.6%;
+      width: 30%;
+    }
+
+    @include min-lg {
+      width: 23%;
+      margin: 1%;
+    }
+
+    @include min-xl {
+      height: 220px;
+    }
+
+    .content {
+      display: table-cell;
+      vertical-align: middle;
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+      padding: 30px;
+    }
+
+    h2 {
+      text-transform: uppercase;
+      font-size: 15px;
+      font-weight: 400;
+      margin: 1rem;
+      line-height: 1.1rem;
+    }
+
+    .icon {
+      max-width: 40px;
+      margin: 0px auto;
+    }
+    
+    p {
+      line-height: 1.1rem;
+      margin-top: 0;
+    }
+
+    &:hover {
+      background: $colorMain;
+      color: white;
+
+      a {
+        color: white;
+      }
+
+      svg {
+        fill: white;
+      }
+    }
+  }

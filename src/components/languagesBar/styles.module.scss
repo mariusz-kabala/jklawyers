@@ -1,0 +1,45 @@
+@import 'styles/mixins';
+@import 'styles/breakpoints';
+
+.container {
+    @include horizontal-list;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 4;
+
+    @include max-md {
+        width: 35px;
+        height: 26px;
+        overflow: hidden;
+
+        &:hover {
+            overflow: visible;
+        }
+    }
+
+    @include min-md {
+        width: auto;
+        height: auto;
+    }
+
+    @include max-sm {
+        width: auto;
+        height: auto;
+    }
+
+    li {
+        width: 25px;
+        margin: 0 6px;
+        cursor: pointer;
+        opacity: 0.5;
+
+        img {
+            max-width: 100%;
+        }
+
+        &.active {
+            opacity: 1;
+        }
+    }
+}

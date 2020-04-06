@@ -1,0 +1,79 @@
+@import 'styles/index';
+
+.bg {
+    background-color: white;
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+}
+
+.spacer {
+    height: 30px;
+    display: none;
+    @include min-sm {
+        display: block;
+    }
+}
+
+.container {
+    width: 700px;
+    height: 60px;
+    margin: 0 auto;
+    padding: 10px 0;
+    display: none;
+    @include mainFont;
+
+    @include min-sm {
+        display: block;
+    }
+
+    @include min-md {
+        width: 1000px;
+    }
+
+    a {
+        text-decoration: none;
+        text-transform: uppercase;
+        color: $colorMain;
+    }
+
+    ul {
+        @include horizontal-list;
+        display: flex;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: 500;
+
+        li {
+            margin: 0 10px;
+            padding: 10px;
+            border: 1px solid white;
+
+            &:hover {
+                border: 1px solid $colorMain;
+            }
+
+            &.disabled {
+                &:hover {
+                    border: 1px solid $colorDisabled;
+                }
+                a {
+                    color: $colorDisabled;
+                }
+            }
+
+            &.logo {
+                width: 60px;
+                border: none;
+
+                &:hover {
+                    border: none;
+                }
+
+                img {
+                    max-width: 100%;
+                }
+            }
+        }
+    }
+}
