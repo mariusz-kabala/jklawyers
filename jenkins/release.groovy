@@ -29,7 +29,6 @@ pipeline {
         stage ('prepare') {
             steps {
                 script {
-                    sh "printenv"
                     SHORT_COMMIT = GIT_COMMIT.take(7)
                     env.SHORT_COMMIT = SHORT_COMMIT
                     try {
@@ -58,6 +57,9 @@ pipeline {
                     manager.addShortText(branch, "white", "navy", "1px", "navy")
 
                     env.GIT_BRANCH = branch
+                    env.GIT_LOCAL_BRANCH = branch
+
+                    sh "printenv"
                 }
             }
         }
