@@ -73,7 +73,7 @@ pipeline {
                         sh "git checkout ${branch}"
                         sh "git pull origin master"
                         sh "git branch"
-                        sh "npm run semantic-release -- -d"
+                        sh "npm run semantic-release -- -d --branches origin/master" 
                     }
                 }
             }
