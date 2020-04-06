@@ -45,7 +45,7 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release -d --branches origin/master"
   },
   "repository": {
     "type": "git",
