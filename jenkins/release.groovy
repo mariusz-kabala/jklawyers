@@ -71,6 +71,8 @@ pipeline {
                 sshagent(['jenkins-ssh-key']) {
                     script {
                         sh "git checkout ${branch}"
+                        sh "git pull origin master"
+                        sh "git branch"
                         sh "npm run semantic-release -- -d"
                     }
                 }
