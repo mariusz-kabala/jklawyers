@@ -9,7 +9,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import { Contact } from 'components/contact'
-import { Footer } from 'components/Footer'
+import { Footer } from 'components/footer'
 import i18n from '../i18n'
 
 import Header from "./header"

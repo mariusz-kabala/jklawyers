@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import styles from './styles.module.scss'
 import { FounderInfo } from 'components/founderInfo'
-import { Divider } from 'components/Divider'
+import { Divider } from 'components/divider'
 
 let founderInterval
 
