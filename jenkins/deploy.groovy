@@ -59,9 +59,9 @@ pipeline {
                     ])
             }
         }
-        stage ('Deploy app-andrew') {
+        stage ('Deploy') {
             steps {
-                dir("packages/app-andrew/terraform") {
+                dir("terraform") {
                     script {
                         docker.withRegistry('https://docker-registry.kabala.tech', 'docker-registry-credentials') {
                             sh "terraform init"
