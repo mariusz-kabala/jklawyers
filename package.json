@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "jklawyers",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "description": "",
+  "version": "0.0.0",
+  "author": "Mariusz Kabala",
   "dependencies": {
     "classnames": "^2.2.6",
     "gatsby": "^2.19.45",
@@ -30,7 +30,8 @@
     "react-icons": "^3.9.0"
   },
   "devDependencies": {
-    "prettier": "^1.19.1"
+    "prettier": "^1.19.1",
+    "semantic-release": "^17.0.4"
   },
   "keywords": [
     "gatsby"
@@ -43,7 +44,8 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "semantic-release": "semantic-release"
   },
   "repository": {
     "type": "git",
