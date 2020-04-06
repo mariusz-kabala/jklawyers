@@ -2,10 +2,10 @@ import React from "react"
 import Layout from "components/layout"
 import styles from "./styles.module.scss"
 import { useTranslation } from "react-i18next"
-import { ContentEN } from './translations/en'
-import { ContentDE } from './translations/de'
-import { ContentPL } from './translations/pl'
-import { ContentFR } from './translations/fr'
+import { ContentEN } from 'locales/en/about'
+import { ContentDE } from 'locales/de/about'
+import { ContentPL } from 'locales/pl/about'
+import { ContentFR } from 'locales/fr/about'
 
 const Contant = () => {
   const { i18n } = useTranslation()
