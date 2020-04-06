@@ -56,6 +56,8 @@ pipeline {
 
                     println "GIT branch to process: ${branch}"
                     manager.addShortText(branch, "white", "navy", "1px", "navy")
+
+                    env.GIT_BRANCH = branch
                 }
             }
         }
@@ -71,9 +73,7 @@ pipeline {
                 sshagent(['jenkins-ssh-key']) {
                     script {
                         sh "git checkout ${branch}"
-                        sh "git pull origin master"
-                        sh "git branch"
-                        sh "npm run semantic-release" 
+                        sh "npm run semantic-release -d" 
                     }
                 }
             }
