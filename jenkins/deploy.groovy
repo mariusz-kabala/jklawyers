@@ -41,6 +41,7 @@ pipeline {
                     println "GIT branch to process: ${branch}"
                     manager.addShortText(branch, "white", "navy", "1px", "navy")
 
+                    sh "mkdir -p ~/.ssh/"
                     sh "ssh-keyscan -t rsa -p21598 145.239.89.193  >> ~/.ssh/known_hosts"
                     sh "cat ~/.ssh/known_hosts"
                     
