@@ -62,12 +62,14 @@ pipeline {
         stage ('Deploy') {
             steps {
                 dir("terraform") {
-                    script {
-                        docker.withRegistry('https://docker-registry.kabala.tech', 'docker-registry-credentials') {
-                            sh "terraform init"
-                            sh "terraform workspace select ${env.DEPLOY_ENVIRONMENT} || terraform workspace new ${env.DEPLOY_ENVIRONMENT}"
-                            sh "terraform plan -out deploy.plan -var-file=${env.DEPLOY_ENVIRONMENT}.tfvars -var=\"tag=${env.GIT_TAG}\" -var=\"DOCKER_REGISTRY_USERNAME=${DOCKER_REGISTRY_USERNAME}\" -var=\"DOCKER_REGISTRY_PASSWORD=${DOCKER_REGISTRY_PASSWORD}\"" 
-                            sh "terraform apply -auto-approve deploy.plan"
+                    sshagent(['jenkins-ssh-key']) {
+                        script {
+                            docker.withRegistry('https://docker-registry.kabala.tech', 'docker-registry-credentials') {
+                                sh "terraform init"
+                                sh "terraform workspace select ${env.DEPLOY_ENVIRONMENT} || terraform workspace new ${env.DEPLOY_ENVIRONMENT}"
+                                sh "terraform plan -out deploy.plan -var-file=${env.DEPLOY_ENVIRONMENT}.tfvars -var=\"tag=${env.GIT_TAG}\" -var=\"DOCKER_REGISTRY_USERNAME=${DOCKER_REGISTRY_USERNAME}\" -var=\"DOCKER_REGISTRY_PASSWORD=${DOCKER_REGISTRY_PASSWORD}\"" 
+                                sh "terraform apply -auto-approve deploy.plan"
+                            }
                         }
                     }
                 }
