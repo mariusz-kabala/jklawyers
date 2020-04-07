@@ -63,7 +63,7 @@ pipeline {
         stage ('Deploy') {
             steps {
                 dir("terraform") {
-                    sshagent(['jenkins-ssh-key']) {
+                    sshagent(['jenkins-local-ssh-key']) {
                         script {
                             docker.withRegistry('https://docker-registry.kabala.tech', 'docker-registry-credentials') {
                                 sh "terraform init"
