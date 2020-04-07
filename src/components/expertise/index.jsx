@@ -2,7 +2,15 @@ import React from "react"
 import { ExpertiseArea } from "components/expertiseArea"
 import styles from "./styles.module.scss"
 import { FaBookOpen } from "react-icons/fa"
+import { FaRoad } from "react-icons/fa"
+import { FaLightbulb } from "react-icons/fa"
+import { FaHome } from "react-icons/fa"
+import { FaSync } from "react-icons/fa"
 import { IconContext } from "react-icons"
+import { IconPuzzle } from 'components/expertiseArea/icons/puzzle'
+import { IconAgreement } from 'components/expertiseArea/icons/agreement'
+import { IconFlag } from 'components/expertiseArea/icons/flag'
+import { IconChemist } from 'components/expertiseArea/icons/chemist'
 import { useTranslation } from 'react-i18next'
 
 export const Expertise = () => {
@@ -16,21 +24,21 @@ export const Expertise = () => {
       <section className={styles.container}>
         <ExpertiseArea
           header={t('box1')}
-          Icon={FaBookOpen}
+          Icon={IconPuzzle}
         />
-        <ExpertiseArea header={t('box2')} Icon={FaBookOpen} />
-        <ExpertiseArea header={t('box3')} Icon={FaBookOpen} />
+        <ExpertiseArea header={t('box2')} Icon={IconAgreement} />
+        <ExpertiseArea header={t('box3')} Icon={IconChemist} />
         <ExpertiseArea
           header={t('box4')}
-          Icon={FaBookOpen}
+          Icon={FaRoad}
         />
         <ExpertiseArea
           header={t('box5')}
-          Icon={FaBookOpen}
+          Icon={FaHome}
         />
         <ExpertiseArea
           header={t('box6')}
-          Icon={FaBookOpen}
+          Icon={FaLightbulb}
         />
         <ExpertiseArea
           header={t('box7')}
@@ -38,7 +46,7 @@ export const Expertise = () => {
         />
         <ExpertiseArea
           header={t('box8')}
-          Icon={FaBookOpen}
+          Icon={FaSync}
         />
       </section>
     </IconContext.Provider>

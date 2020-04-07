@@ -1,5 +1,6 @@
 
 @import 'styles/mixins.scss';
+@import 'styles/variables.scss';
 
 .container {
     display: flex;
@@ -11,4 +12,8 @@
     padding: 2%;
     background: rgb(225,225,225);
     background: linear-gradient(180deg, rgba(225,225,225,1) 0%, rgba(240,240,240,1) 35%, rgba(255,255,255,1) 100%);
+
+    svg {
+        fill: $colorMain;
+    }
 }
