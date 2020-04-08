@@ -9,7 +9,6 @@ import { FaHandHoldingUsd } from "react-icons/fa"
 import { IconContext } from "react-icons"
 import { IconPuzzle } from 'components/expertiseArea/icons/puzzle'
 import { IconAgreement } from 'components/expertiseArea/icons/agreement'
-import { IconFlag } from 'components/expertiseArea/icons/flag'
 import { IconChemist } from 'components/expertiseArea/icons/chemist'
 import { useTranslation } from 'react-i18next'
 
