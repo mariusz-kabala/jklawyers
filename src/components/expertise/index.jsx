@@ -11,15 +11,34 @@ import { IconPuzzle } from 'components/expertiseArea/icons/puzzle'
 import { IconAgreement } from 'components/expertiseArea/icons/agreement'
 import { IconChemist } from 'components/expertiseArea/icons/chemist'
 import { useTranslation } from 'react-i18next'
-
+import { useStaticQuery, graphql } from 'gatsby'
+ 
 export const Expertise = () => {
-  const { t } = useTranslation()
+  const { i18n } = useTranslation()
+  const data = useStaticQuery(
+    graphql`
+    query MyQuery {
+      allStrapiWorkingAreas(filter: {language: {code: {eq: "${i18n.language}"}}}) {
+        edges {
+          node {
+            icon
+            title
+          }
+        }
+      }
+    }
+    `
+  )
+
+
+  console.log(data)
 
   return (
     <IconContext.Provider
       value={{ color: "#970052", size: "3em", className: "global-class-name" }}
     >
       <a name="areas" />
+      {data.allStrapiWorkingAreas}
       <section className={styles.container}>
         <ExpertiseArea
           header={t('box1')}
