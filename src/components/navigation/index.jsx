@@ -5,7 +5,7 @@ import logo from './logo.png'
 import { useTranslation } from 'react-i18next'
 
 export const Navigation = () => {
-    const { t } = useTranslation()
+    const { t, i18n } = useTranslation()
     
     return (
         <>
@@ -13,7 +13,7 @@ export const Navigation = () => {
                 <nav className={styles.container}>
                     <ul>
                         <li>
-                            <Link to="/about">{t('menu-about')}</Link>
+                            <Link to={`/${i18n.language}/about`}>{t('menu-about')}</Link>
                         </li>
                         <li className={styles.disabled}>
                         <Link to="/">{t('menu-news')}</Link>

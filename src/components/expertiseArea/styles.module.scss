@@ -2,6 +2,10 @@
 
 @import 'styles/breakpoints.scss';
 
+.hasUrl {
+  cursor: pointer;
+}
+
 .box {
     text-align: center;
     display: table;
