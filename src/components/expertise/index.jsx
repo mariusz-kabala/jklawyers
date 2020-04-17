@@ -11,9 +11,48 @@ import { IconPuzzle } from 'components/expertiseArea/icons/puzzle'
 import { IconAgreement } from 'components/expertiseArea/icons/agreement'
 import { IconChemist } from 'components/expertiseArea/icons/chemist'
 import { useTranslation } from 'react-i18next'
+import { useStaticQuery, graphql } from 'gatsby'
+ 
+const getIcon = icon => {
+  switch (icon) {
+    case 'road':
+      return FaRoad
+    case 'lightBulb':
+      return FaLightbulb
+    case 'home':
+      return FaHome
+    case 'flag':
+      return FaFlag
+    case 'handHoldingUsd':
+      return FaHandHoldingUsd
+    case 'puzzle':
+      return IconPuzzle
+    case 'agreement':
+      return IconAgreement
+    case 'chemist':
+      return IconChemist
+  }
+}
+
 
 export const Expertise = () => {
-  const { t } = useTranslation()
+  const { i18n } = useTranslation()
+  const data = useStaticQuery(
+    graphql`
+    query ExpertiseAreasQuery {
+      allStrapiWorkingAreas(sort: {order: ASC, fields: order}) {
+        edges {
+          node {
+            icon
+            title
+            language {
+              code
+            }
+          }
+        }
+      }
+    }`
+  )
 
   return (
     <IconContext.Provider
@@ -21,32 +60,13 @@ export const Expertise = () => {
     >
       <a name="areas" />
       <section className={styles.container}>
+      {data.allStrapiWorkingAreas.edges.filter(record => record.node.language.code === i18n.language).map(({node}) => (
         <ExpertiseArea
-          header={t('box1')}
-          Icon={IconPuzzle}
+          header={node.title}
+          Icon={getIcon(node.icon)}
+          url={node.articles?.slug ? `/${node.language.code}/${node.articles?.slug}` : undefined}
         />
-        <ExpertiseArea header={t('box2')} Icon={FaFlag} />
-        <ExpertiseArea header={t('box3')} Icon={IconChemist} />
-        <ExpertiseArea
-          header={t('box4')}
-          Icon={FaRoad}
-        />
-        <ExpertiseArea
-          header={t('box5')}
-          Icon={FaHome}
-        />
-        <ExpertiseArea
-          header={t('box6')}
-          Icon={FaLightbulb}
-        />
-        <ExpertiseArea
-          header={t('box7')}
-          Icon={FaHandHoldingUsd}
-        />
-        <ExpertiseArea
-          header={t('box8')}
-          Icon={IconAgreement}
-        />
+      ))}
       </section>
     </IconContext.Provider>
   )

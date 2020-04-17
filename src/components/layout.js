@@ -8,9 +8,10 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-import { Contact } from 'components/contact'
-import { Footer } from 'components/footer'
-import i18n from '../i18n'
+import { Contact } from "components/contact"
+import { Footer } from "components/footer"
+import { CookiePolicyBanner } from 'components/cookiePolicyBanner'
+import i18n from "../i18n"
 
 import Header from "./header"
 import "./layout.css"
@@ -29,9 +30,8 @@ const Layout = ({ children }) => {
   return (
     <div id="outer-container">
       <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        id="page-wrap"
-      >
+      <CookiePolicyBanner />
+      <div id="page-wrap">
         <main>{children}</main>
         <footer>
           <Contact />

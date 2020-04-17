@@ -1,14 +1,21 @@
 import React from "react"
+import { navigate } from 'gatsby' 
 import styles from "./styles.module.scss"
 import PropTypes from "prop-types"
+import cn from 'classnames'
 
-export const ExpertiseArea = ({ Icon, header, description }) => {
+export const ExpertiseArea = ({ Icon, header, url }) => {
   return (
-    <div className={styles.box}>
+    <div onClick={() => {
+      if (url) {
+        navigate(url)
+      }
+    }} className={cn(styles.box, {
+      [styles.hasUrl]: !!url 
+    })}>
       <div className={styles.content}>
         <Icon className={styles.icon} />
         <h2>{header}</h2>
-        <p>{description}</p>
       </div>
     </div>
   )
@@ -17,5 +24,5 @@ export const ExpertiseArea = ({ Icon, header, description }) => {
 ExpertiseArea.propTypes = {
   Icon: PropTypes.element.isRequired,
   header: PropTypes.string.isRequired,
-  description: PropTypes.string,
+  url: PropTypes.string
 }

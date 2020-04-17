@@ -1,10 +1,12 @@
-import React from "react"
+import React, { useState } from "react"
 import { useForm } from 'react-hook-form'
 import styles from "./styles.module.scss"
 import { useTranslation } from 'react-i18next'
+import { Link } from "gatsby"
 
 export const ContactForm = () => {
-    const { t } = useTranslation()
+    const { t, i18n } = useTranslation()
+    const [isDisabled, setIsDisabled ] = useState(true)
 
     return (
         <div className={styles.content}>
@@ -24,8 +26,14 @@ export const ContactForm = () => {
                         <textarea name="message" placeholder={t('contact-message')} />
                     </label>
                 </div>
-                <div className={styles.element}>
-                    <button type="submit">{t('contact-button')}</button>
+                <div className={styles.bottom}>
+                    <div className={styles.consent}>
+                        <input type="checkbox" onClick={() => setIsDisabled(!isDisabled)}/>
+                        <Link to={`/${i18n.language}/information-clause`}>{t('consent')}</Link>
+                    </div>
+                    <div className={styles.element}>
+                        <button disabled={isDisabled} type="submit">{t('contact-button')}</button>
+                    </div>
                 </div>
             </form>
         </div>

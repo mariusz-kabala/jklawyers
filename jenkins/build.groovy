@@ -62,7 +62,7 @@ pipeline {
         stage ('Build Containers') {
              steps {
                 script {
-                    def app = docker.build("jklawyers", "-f Dockerfile .")
+                    def app = docker.build("jklawyers", "-f Dockerfile --build-arg CMS_URL=${env.CMS_URL} .")
 
                     
                     docker.withRegistry('https://docker-registry.kabala.tech', 'docker-registry-credentials') {

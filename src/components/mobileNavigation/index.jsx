@@ -8,7 +8,7 @@ import { useTranslation } from "react-i18next"
 import "./hamburger.scss"
 
 export const MobileNavigation = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const [isOpen, setIsOpen] = useState(false)
 
   return (
@@ -28,7 +28,7 @@ export const MobileNavigation = () => {
         >
           <ul className={styles.menu}>
             <li>
-              <Link to="/about">{t("menu-about")}</Link>
+              <Link to={`/${i18n.language}/about`}>{t("menu-about")}</Link>
             </li>
             <li className={styles.disabled}>
               <Link to="/">{t("menu-news")}</Link>
