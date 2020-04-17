@@ -1,3 +1,7 @@
+require('dotenv').config()
+
+const { CMS_URL } = process.env
+console.log('CMS_URL', CMS_URL)
 module.exports = {
   siteMetadata: {
     title: `JK Lawyers Grzegorz Jamrozy Monika Kabała`,
@@ -16,7 +20,7 @@ module.exports = {
     {
       resolve: "gatsby-source-strapi",
       options: {
-        apiURL: "http://localhost:1337",
+        apiURL: CMS_URL,
         contentTypes: [
           // List of the Content Types you want to be able to request from Gatsby.
           "languages",
