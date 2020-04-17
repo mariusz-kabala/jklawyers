@@ -32,6 +32,7 @@
 
     @include min-sm {
         display: block;
+        max-width: 300px;
     }
 
     .element {

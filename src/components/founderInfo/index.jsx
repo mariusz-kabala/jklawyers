@@ -2,14 +2,16 @@ import React from "react"
 import styles from "./styles.module.scss"
 import cn from 'classnames'
 import PropTypes from "prop-types"
+import ReactMarkdown from "react-markdown"
 import { useTranslation } from 'react-i18next'
 
 export const FounderInfo = ({
     isLeft,
     isActive,
-    person
+    person,
+    info
 }) => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
 
   return (
     <div className={cn(styles.container, {
@@ -20,21 +22,7 @@ export const FounderInfo = ({
         <span className={styles.position}>{t(`${person}-legal-counsel`)}</span>
         {t(`${person}-name`)} <span className={styles.surname}>{t(`${person}-surname`)}</span>
       </h3>
-      <p>
-        {t(`${person}-p1`)}
-      </p>
-      <p>
-        {t(`${person}-p2`)}
-      </p>
-      <p>
-        {t(`${person}-p3`)}
-      </p>
-      <p>
-        {t(`${person}-p4`)}
-      </p>
-      <p>
-        {t(`${person}-p5`)}
-      </p>
+      <ReactMarkdown source={info[i18n.language] || info.en} />
     </div>
   )
 }
@@ -47,6 +35,7 @@ FounderInfo.defaultProps = {
 FounderInfo.propTypes = {
     isLeft: PropTypes.bool,
     isActive: PropTypes.bool,
-    person: PropTypes.string.isRequired
+    person: PropTypes.string.isRequired,
+    info: PropTypes.object.isRequired
 }
   

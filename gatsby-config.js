@@ -1,7 +1,7 @@
 require('dotenv').config()
 
 const { CMS_URL } = process.env
-console.log('CMS_URL', CMS_URL)
+
 module.exports = {
   siteMetadata: {
     title: `JK Lawyers Grzegorz Jamrozy Monika Kabała`,
