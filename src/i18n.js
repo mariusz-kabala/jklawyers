@@ -1,5 +1,4 @@
 import i18n from "i18next"
-import Backend from "i18next-xhr-backend"
 import LanguageDetector from "i18next-browser-languagedetector"
 import { initReactI18next } from "react-i18next"
 import enTranslations from './locales/en.translations.json'
@@ -8,11 +7,9 @@ import deTranslations from './locales/de.translations.json'
 import frTranslations from './locales/fr.translations.json'
 
 i18n
-  .use(Backend)
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    lng: localStorage.getItem("language") || "en",
     fallbackLng: "en",
     debug: false,
     interpolation: {
@@ -35,6 +32,12 @@ i18n
     react: {
       wait: true,
     },
+    detection: {
+      order: ['path', 'cookie', 'localStorage'],
+      lookupCookie: 'i18next',
+      lookupLocalStorage: 'i18nextLng',
+      caches: ['localStorage', 'cookie'],
+    }
   })
 
   export default i18n

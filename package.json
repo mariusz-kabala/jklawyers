@@ -20,7 +20,6 @@
     "google-map-react": "^1.1.7",
     "i18next": "^19.3.4",
     "i18next-browser-languagedetector": "^4.0.2",
-    "i18next-xhr-backend": "^3.2.2",
     "node-fetch": "^2.6.0",
     "node-sass": "^4.13.1",
     "prop-types": "^15.7.2",

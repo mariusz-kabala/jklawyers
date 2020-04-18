@@ -14,11 +14,6 @@ export const LanguagesBar = () => {
   const { location } = history
   const getOnClickCallback = lang => () => {
     i18n.changeLanguage(lang)
-    try {
-      localStorage.setItem("language", lang)
-    } catch (err) {
-      // ignore
-    }
     const locationArr = location.pathname.split("/")
     const [_, currentLang] = locationArr
 

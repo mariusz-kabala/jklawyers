@@ -30,9 +30,15 @@ exports.onPreBootstrap = async () => {
     translations[t.language.code][t.key] = t.value
   }
 
+  const localesDir = path.join(__dirname, '/src/locales/')
+
+  if (!fs.existsSync(localesDir)) {
+    fs.mkdirSync(localesDir, 0744);
+  }
+
   await Promise.all(Object.keys(translations).map(lang => {
     return new Promise((resolve, reject) => {
-      fs.writeFile(path.join(__dirname, `/src/locales/${lang}.translations.json`), JSON.stringify(translations[lang]), err => {
+      fs.writeFile(`${localesDir}/${lang}.translations.json`, JSON.stringify(translations[lang]), err => {
         if (err) {
           return reject(err)
         }
@@ -64,8 +70,25 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      allStrapiLanguages {
+        edges {
+          node {
+            code
+          }
+        }
+      }
     }
   `)
+
+  result.data.allStrapiLanguages.edges.forEach(({node}) => {
+    createPage({
+      path: `${node.code}`,
+      component: path.resolve(`./src/pages/index.js`),
+      context: {
+        language: node.code,
+      },
+    })
+  })
 
   result.data.allStrapiArticles.edges.forEach(({node}) => {
     createPage({
