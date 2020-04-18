@@ -15,7 +15,7 @@ export const MobileNavigation = () => {
     <>
       <nav className={styles.container}>
         <div className={styles.logo}>
-          <Link to="/">
+          <Link to={`/${i18n.language}`}>
             <img src={logo} alt="" />
           </Link>
         </div>
@@ -31,13 +31,13 @@ export const MobileNavigation = () => {
               <Link to={`/${i18n.language}/about`}>{t("menu-about")}</Link>
             </li>
             <li className={styles.disabled}>
-              <Link to="/">{t("menu-news")}</Link>
+              <Link to={`/${i18n.language}`}>{t("menu-news")}</Link>
             </li>
             <li>
-              <Link onClick={() => setIsOpen(false)} to="/#areas">{t("menu-areas")}</Link>
+              <Link onClick={() => setIsOpen(false)} to={`/${i18n.language}/#areas`}>{t("menu-areas")}</Link>
             </li>
             <li>
-              <a onClick={() => setIsOpen(false)} href="/#contact">{t("menu-contact")}</a>
+              <a onClick={() => setIsOpen(false)} href={`/${i18n.language}/#contact`}>{t("menu-contact")}</a>
             </li>
           </ul>
         </Menu>

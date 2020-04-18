@@ -16,18 +16,18 @@ export const Navigation = () => {
                             <Link to={`/${i18n.language}/about`}>{t('menu-about')}</Link>
                         </li>
                         <li className={styles.disabled}>
-                        <Link to="/">{t('menu-news')}</Link>
+                        <Link to={`/${i18n.language}`}>{t('menu-news')}</Link>
                         </li>
                         <li className={styles.logo}>
-                            <Link to="/">
+                            <Link to={`/${i18n.language}`}>
                                 <img src={logo} alt="" />
                             </Link>
                         </li>
                         <li>
-                            <Link to="/#areas">{t('menu-areas')}</Link>
+                            <Link to={`/${i18n.language}/#areas`}>{t('menu-areas')}</Link>
                         </li>
                         <li>
-                            <a href="#contact">{t('menu-contact')}</a>
+                            <a href={`/${i18n.language}/#contact`}>{t('menu-contact')}</a>
                         </li>
                     </ul>
                 </nav>
