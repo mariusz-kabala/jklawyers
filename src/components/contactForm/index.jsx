@@ -10,6 +10,7 @@ export const ContactForm = () => {
     const { t, i18n } = useTranslation()
     const [isDisabled, setIsDisabled ] = useState(true)
     const [isSuccess, setIsSuccess] = useState(false)
+    const [isVerified, setIsVerified] = useState(false)
     const { register, handleSubmit, errors } = useForm()
     const onSubmit = data => { setIsSuccess(true) }
 
@@ -52,14 +53,14 @@ export const ContactForm = () => {
                         [styles.isVisible]: !isDisabled
                     })}>
                     <Recaptcha
-                        sitekey="6LdoyuoUAAAAAJVS8YBMwv2cY4Cq5WPD7K9ZOr35"
+                        sitekey="6LeQz-oUAAAAAB4EwPgfS6AUCGhbgtHmaoPEy9l7"
                         render="explicit"
-                        onloadCallback={() => null}
+                        verifyCallback={() => setIsVerified(true)}
                     />
                     </div>
                 </div>
                 <div className={styles.element}>
-                    <button disabled={isDisabled} type="submit">{t('contact-button')}</button>
+                    <button disabled={isDisabled || !isVerified} type="submit">{t('contact-button')}</button>
                 </div>
             </form>
         </div>
