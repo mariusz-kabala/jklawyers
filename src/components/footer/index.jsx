@@ -1,19 +1,28 @@
 import React from "react"
-import { FaLinkedinIn, FaEnvelope }  from 'react-icons/fa'
+import { FaLinkedinIn, FaEnvelope } from "react-icons/fa"
+import { useTranslation } from "react-i18next"
+import { Link } from "gatsby"
 import styles from "./styles.module.scss"
 
 export const Footer = () => {
-    return (
-        <div className={styles.footer}>
-            <div>
-                <FaLinkedinIn />
-                <a href="mailto:info@jklawyers.pl">
-                    <FaEnvelope />
-                </a>
-            </div>
-            <div>
-                <p>© JKLawyers.pl</p>
-            </div>
-        </div>
-    )
+  const { t, i18n } = useTranslation()
+
+  return (
+    <div className={styles.footer}>
+      <div>
+        <FaLinkedinIn />
+        <a href="mailto:info@jklawyers.pl">
+          <FaEnvelope />
+        </a>
+      </div>
+      <div>
+        <p>
+          © JKLawyers.pl {t("all-rights-reserved")}.{" "}
+          <Link to={`/${i18n.language}/information-clause`}>
+            {t("information-clause")}
+          </Link>
+        </p>
+      </div>
+    </div>
+  )
 }

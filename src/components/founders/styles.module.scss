@@ -7,11 +7,27 @@
     justify-content: space-between;
     height: 220px;
 
+    @media (max-width: 320px) {
+        height: 190px;
+    }
+
+    @media (min-width: 376px) and (max-width: 415px) {
+        height: 250px;
+    }
+
     @include min-md {
         height: 300px;
     }
 
     @include min-lg {
+        height: 520px;
+    }
+
+    @include min-xl {
+        height: 650px;
+    }
+
+    @include min-xxl {
         height: 700px;
     }
 }
