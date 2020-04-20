@@ -17,10 +17,24 @@ export const Footer = () => {
       </div>
       <div>
         <p>
-          © JKLawyers.pl {t("all-rights-reserved")}.{" "}
-          <Link to={`/${i18n.language}/information-clause`}>
-            {t("information-clause")}
-          </Link>
+          © JKLawyers.pl {t("all-rights-reserved")}.
+          <ul>
+            <li>
+              <Link to={`/${i18n.language}/information-clause`}>
+                {t("information-clause")}
+              </Link>
+            </li>
+            <li>
+              <Link to={`/${i18n.language}/disclaimer`}>
+                {t("disclaimer")}
+              </Link>
+            </li>
+            <li>
+              <Link to={`/${i18n.language}/cookies-policy`}>
+                {t("cookies-policy")}
+              </Link>
+            </li>
+          </ul>
         </p>
       </div>
     </div>

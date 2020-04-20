@@ -1,5 +1,6 @@
 @import 'styles/variables.scss';
 @import 'styles/mixins.scss';
+@import 'styles/breakpoints.scss';
 
 .footer {
     padding: 0.5%;
@@ -23,5 +24,18 @@
     }
     svg {
         margin: 0 5px;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        li {
+            display: inline-block;
+            margin: 0 5px;
+            @include min-md {
+                margin: 0 15px;
+            }
+        }
     }
 }
