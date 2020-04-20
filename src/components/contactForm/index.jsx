@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useRef } from "react"
 import { useForm } from "react-hook-form"
 import styles from "./styles.module.scss"
 import { useTranslation } from "react-i18next"
@@ -7,13 +7,31 @@ import Recaptcha from "react-recaptcha"
 import cn from "classnames"
 import useSSR from "use-ssr"
 
+const { CMS_URL } = process.env
+
 export const ContactForm = () => {
   const { t, i18n } = useTranslation()
   const [isDisabled, setIsDisabled] = useState(true)
   const [isSuccess, setIsSuccess] = useState(false)
   const [isVerified, setIsVerified] = useState(false)
   const { register, handleSubmit, errors } = useForm()
+  const nameEl = useRef()
+  const emailEl = useRef()
+  const msgRef = useRef()
   const onSubmit = data => {
+    fetch(`${CMS_URL}/messages`, {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            from: data.email,
+            message: data.message,
+            topic: data.name 
+        })
+    })
+
     setIsSuccess(true)
   }
   const { isBrowser } = useSSR()
@@ -24,7 +42,14 @@ export const ContactForm = () => {
         <div className={styles.success}>
           <p>
             {t("email-sent-success-msg")} <br />
-            <a onClick={() => setIsSuccess(false)}>{t("email-close")}</a>
+            <a onClick={() => {
+                setIsSuccess(false)
+                setIsDisabled(true)
+
+                nameEl.current.value = ''
+                msgRef.current.value = ''
+                emailEl.current.value = ''
+            }}>{t("email-close")}</a>
           </p>
         </div>
       )}
@@ -39,7 +64,10 @@ export const ContactForm = () => {
               type="text"
               name="name"
               placeholder={t("contact-name")}
-              ref={register({ required: true })}
+              ref={e => {
+                register(e, { required: true })
+                nameEl.current = e
+              }}
             />
             {errors.name && (
               <p className={styles.error}>
@@ -58,7 +86,10 @@ export const ContactForm = () => {
               type="email"
               name="email"
               placeholder={t("contact-email")}
-              ref={register({ required: true })}
+              ref={e => {
+                register(e, { required: true })
+                emailEl.current = e
+              }}
             />
             {errors.email && (
               <p className={styles.error}>
@@ -76,7 +107,10 @@ export const ContactForm = () => {
             <textarea
               name="message"
               placeholder={t("contact-message")}
-              ref={register({ required: true })}
+              ref={e => {
+                register(e, { required: true })
+                msgRef.current = e
+              }}
             />
             {errors.message && (
               <p className={styles.error}>
@@ -87,7 +121,7 @@ export const ContactForm = () => {
         </div>
         <div className={styles.bottom}>
           <div className={styles.consent}>
-            <input type="checkbox" onClick={() => setIsDisabled(!isDisabled)} />
+            <input type="checkbox" checked={!isDisabled} onClick={() => setIsDisabled(!isDisabled)} />
             <Link to={`/${i18n.language}/information-clause`}>
               {t("consent")}
             </Link>
