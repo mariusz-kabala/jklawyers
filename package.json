@@ -37,6 +37,7 @@
     "react-markdown": "^4.3.1",
     "react-nl2br": "^0.6.0",
     "react-recaptcha": "^2.3.10",
+    "slugify": "^1.4.0",
     "use-ssr": "^1.0.23"
   },
   "devDependencies": {

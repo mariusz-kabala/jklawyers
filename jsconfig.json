@@ -4,7 +4,8 @@
       "paths": {
         "components": ["src/components"],
         "styles": ["src/styles"],
-        "locales": ["src/locales"]
+        "locales": ["src/locales"],
+        "helpers": ["src/helpers"],
       }
     }
   }

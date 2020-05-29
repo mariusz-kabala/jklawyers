@@ -15,8 +15,8 @@ export const Navigation = () => {
                         <li>
                             <Link to={`/${i18n.language}/about`}>{t('menu-about')}</Link>
                         </li>
-                        <li className={styles.disabled}>
-                        <Link to={`/${i18n.language}`}>{t('menu-news')}</Link>
+                        <li>
+                        <Link to={`/${i18n.language}/training`}>{t('menu-training')}</Link>
                         </li>
                         <li className={styles.logo}>
                             <Link to={`/${i18n.language}`}>

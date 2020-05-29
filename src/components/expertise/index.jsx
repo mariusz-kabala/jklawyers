@@ -1,39 +1,11 @@
 import React from "react"
 import { ExpertiseArea } from "components/expertiseArea"
 import styles from "./styles.module.scss"
-import { FaRoad } from "react-icons/fa"
-import { FaLightbulb } from "react-icons/fa"
-import { FaHome } from "react-icons/fa"
-import { FaFlag } from "react-icons/fa"
-import { FaHandHoldingUsd } from "react-icons/fa"
 import { IconContext } from "react-icons"
-import { IconPuzzle } from 'components/expertiseArea/icons/puzzle'
-import { IconAgreement } from 'components/expertiseArea/icons/agreement'
-import { IconChemist } from 'components/expertiseArea/icons/chemist'
 import { useTranslation } from 'react-i18next'
 import { useStaticQuery, graphql } from 'gatsby'
- 
-const getIcon = icon => {
-  switch (icon) {
-    case 'road':
-      return FaRoad
-    case 'lightBulb':
-      return FaLightbulb
-    case 'home':
-      return FaHome
-    case 'flag':
-      return FaFlag
-    case 'handHoldingUsd':
-      return FaHandHoldingUsd
-    case 'puzzle':
-      return IconPuzzle
-    case 'agreement':
-      return IconAgreement
-    case 'chemist':
-      return IconChemist
-  }
-}
-
+import slugify from 'slugify'
+import { getIcon } from 'helpers/icon'
 
 export const Expertise = () => {
   const { i18n } = useTranslation()
@@ -44,6 +16,7 @@ export const Expertise = () => {
         edges {
           node {
             icon
+            description
             title
             language {
               code
@@ -64,7 +37,7 @@ export const Expertise = () => {
         <ExpertiseArea
           header={node.title}
           Icon={getIcon(node.icon)}
-          url={node.articles?.slug ? `/${node.language.code}/${node.articles?.slug}` : undefined}
+          url={node.description && node.description !== '' ? `/${node.language.code}/working-area/${slugify(node.title.toLowerCase())}` : undefined}
         />
       ))}
       </section>
