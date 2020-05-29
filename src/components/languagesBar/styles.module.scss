@@ -1,5 +1,6 @@
 @import 'styles/mixins';
 @import 'styles/breakpoints';
+@import 'styles/variables';
 
 .container {
     @include horizontal-list;
@@ -34,12 +35,21 @@
         cursor: pointer;
         opacity: 0.5;
 
+
+        &.text {
+            width: auto;
+            font-size: 15px;
+            min-width: 25px;
+        }
+
         img {
             max-width: 100%;
         }
 
         &.active {
             opacity: 1;
+            font-weight: 600;
+            color: $colorMain;
         }
     }
 }
