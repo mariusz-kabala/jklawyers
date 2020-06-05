@@ -1,72 +1,116 @@
-@import 'styles/mixins';
-@import 'styles/breakpoints';
-@import 'styles/variables';
+@import "styles/mixins";
+@import "styles/breakpoints";
+@import "styles/variables";
 
 .content {
-    padding: 2% 5%;
-    @include min-sm {
-        padding: 2% 15%;
-    }
-    @include mainFont; 
-    h1 {
-        font-size: 32px;
-        color: $colorMain;
-        text-transform: uppercase;
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        align-items: center;
-        i {
-            margin-right: 20px;
-            color: $colorMain;
-            svg {
-                height: 50px;
-                width: 50px;
-                fill: $colorMain;
-            }
-        }
-    }
+  max-width: 1900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  padding: 2% 5%;
+  @include min-sm {
+    padding: 2% 15%;
+    padding-right: 250px;
+  }
+  @include mainFont;
 
-    h3 {
-        color: $colorMain;
-        font-weight: bold;
-        text-transform: uppercase;
-        font-size: 18px
+  .icon {
+    .bg {
+      background-color: $colorMain;
+      padding: 20px;
     }
+    
+    text-align: center;
+    width: 250px;
+  }
 
-    p {
-        text-align: justify;
+  .txt {
+    margin: 0 2.5%;
+    text-align: justify;
+  }
+
+  i {
+    display: inline-block;
+    margin: 10px auto;
+    color: white;
+    svg {
+      height: 100px;
+      width: 100px;
+      fill: white;
     }
+  }
+
+  h1 {
+    font-size: 28px;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  h3 {
+    color: $colorMain;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 18px;
+  }
+
+  p {
+    text-align: justify;
+  }
 }
 
 .articles {
-    ul {
-        margin: 0;
-        padding: 0;
-        list-style-type: none;
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
 
-        li {
-            padding: 20px;
-            border: 1px solid $colorMain;
-            cursor: pointer;
-            text-decoration: none;
+    li {
+      padding: 20px;
+      border: 1px solid $colorMain;
+      cursor: pointer;
+      text-decoration: none;
 
-            a {
-                text-decoration: none;
-            }
+      a {
+        text-decoration: none;
+      }
 
-            h4 {
-                color: $colorMain;
-                font-weight: normal;
-            }
+      h4 {
+        color: $colorMain;
+        font-weight: normal;
+      }
 
-            &:hover {
-                background-color: $colorMain;
+      &:hover {
+        background-color: $colorMain;
 
-                h4 {
-                    color: white;
-                }
-            }
+        h4 {
+          color: white;
         }
+      }
     }
+  }
+}
+
+.workingAreas {
+    display: flex;
+    flex-direction: column;
+  padding: 20px;
+  border: 1px solid $colorMain;
+  text-align: center;
+  justify-content: space-evenly;
+
+  svg {
+    height: 50px;
+    width: 50px;
+    fill: $colorMain;
+  }
+
+  div:first-child {
+    margin-top: 10px;
+  }
+
+  > div {
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
 }

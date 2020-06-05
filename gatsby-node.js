@@ -146,6 +146,7 @@ exports.createPages = async ({ graphql, actions }) => {
           icon: node.icon,
           description: node.description,
           articles: node.articles,
+          workingAreas: result.data.allStrapiWorkingAreas.edges
         },
       })
     }
