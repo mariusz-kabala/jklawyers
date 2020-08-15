@@ -34,7 +34,7 @@ const Layout = ({ children }) => {
       <div id="page-wrap">
         <main>{children}</main>
         <footer>
-          <Contact />
+          {/* <Contact /> */}
           <Footer />
         </footer>
       </div>

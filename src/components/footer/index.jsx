@@ -1,6 +1,7 @@
 import React from "react"
 import { FaLinkedinIn, FaEnvelope } from "react-icons/fa"
 import { useTranslation } from "react-i18next"
+import { ContactData } from "components/contactData"
 import { Link } from "gatsby"
 import styles from "./styles.module.scss"
 
@@ -9,6 +10,7 @@ export const Footer = () => {
 
   return (
     <div className={styles.footer}>
+      <ContactData />
       <div>
         <FaLinkedinIn />
         <a href="mailto:info@jklawyers.pl">

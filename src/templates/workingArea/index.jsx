@@ -26,9 +26,6 @@ const WorkingAreaPage = ({ pageContext }) => {
             </i>
             <h1>{title}</h1>
           </div>
-        </div>
-        <div className={styles.txt}>
-          <ReactMarkdown source={description} />
 
           {Array.isArray(articles) && articles.length > 0 && (
             <section className={styles.articles}>
@@ -45,7 +42,10 @@ const WorkingAreaPage = ({ pageContext }) => {
             </section>
           )}
         </div>
-        <div className={styles.workingAreas}>
+        <div className={styles.txt}>
+          <ReactMarkdown source={description} />
+          
+          <div className={styles.workingAreas}>
           <IconContext.Provider
             value={{
               color: "#970052",
@@ -67,6 +67,7 @@ const WorkingAreaPage = ({ pageContext }) => {
                 )
               })}
           </IconContext.Provider>
+        </div>
         </div>
       </div>
     </Layout>

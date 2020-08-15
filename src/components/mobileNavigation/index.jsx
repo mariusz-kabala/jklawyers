@@ -34,6 +34,11 @@ export const MobileNavigation = () => {
               <Link to={`/${i18n.language}`}>{t("menu-news")}</Link>
             </li>
             <li>
+              <Link to={`/${i18n.language}/training`}>
+                {t("menu-training")}
+              </Link>
+            </li>
+            <li>
               <Link onClick={() => setIsOpen(false)} to={`/${i18n.language}/#areas`}>{t("menu-areas")}</Link>
             </li>
             <li>

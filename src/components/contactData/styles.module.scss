@@ -27,17 +27,21 @@
     }
 
     display: flex;
-    flex-wrap: wrap;
-    align-content: center;
+    flex-wrap: nowrap;
+    padding: 25px 0;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 
-    @include min-sm {
-        display: block;
-        max-width: 300px;
-    }
+    // @include min-sm {
+    //     display: block;
+    //     max-width: 300px;
+    // }
 
     .element {
-        flex-basis: 50%;
+        flex-basis: 14%;
         text-align: center;
+        margin: 0 25px;
 
         @include min-sm {
             text-align: left;

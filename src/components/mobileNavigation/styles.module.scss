@@ -1,7 +1,9 @@
 @import 'styles/index';
 
 .spacer {
-    height: 69px;
+    @include max-sm {
+        height: 69px;
+    }
 }
 
 .container {
